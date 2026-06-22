@@ -1,0 +1,364 @@
+.container {
+  display: flex;
+  height: 100vh;
+  background-image: url("/images/background-web.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ==========================
+   LEFT
+========================== */
+
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: white;
+  text-transform: uppercase;
+}
+canvas {
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* ==========================
+   WHEEL
+========================== */
+
+.wheelWrapper {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+}
+
+.canvas {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+}
+
+.wheel {
+  border: 8px solid gold;
+  border-radius: 50%;
+}
+
+/* ==========================
+   POINTER
+========================== */
+
+.pointer {
+  position: absolute;
+  top: 50%;
+  right: -69px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-right: 50px solid red;
+
+  z-index: 10;
+
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.animate {
+  animation: pulse 1s infinite ease-in-out;
+}
+
+/* ==========================
+   SPIN BUTTON
+========================== */
+
+.buttonSpin {
+  position: relative;
+
+  margin: 40px 0;
+
+  padding: 16px 40px;
+
+  font-size: 22px;
+  font-weight: 800;
+
+  color: #1e293b;
+
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  background: linear-gradient(145deg, #facc15, #f59e0b);
+
+  box-shadow:
+    0 6px 0 #b45309,
+    0 10px 20px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.2s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(45deg, gold, orange, gold);
+
+    z-index: -1;
+
+    filter: blur(6px);
+    opacity: 0.7;
+  }
+
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+
+    box-shadow:
+      0 8px 0 #b45309,
+      0 15px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    transform: translateY(4px);
+
+    box-shadow:
+      0 2px 0 #b45309,
+      0 5px 10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ==========================
+   RIGHT
+========================== */
+
+.right {
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  margin-left: 180px;
+  margin-bottom: 100px;
+}
+
+.title2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  div,
+  p {
+    text-align: center;
+    color: #112158;
+
+    text-transform: uppercase;
+
+    font-size: 36px;
+    font-weight: 800;
+
+    text-shadow: 2px 2px 0 #ff8c00;
+  }
+
+  p {
+    font-style: italic;
+  }
+}
+
+.giftContainer {
+  display: flex;
+
+  width: 500px;
+  height: 500px;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+.gift {
+  width: 220px;
+  height: 220px;
+
+  cursor: pointer;
+
+  background: none;
+}
+
+/* ==========================
+   POPUP
+========================== */
+
+.popup {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(5, 15, 40, 0.8);
+
+  backdrop-filter: blur(8px);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  animation: fadeIn 0.3s ease;
+}
+
+.popupBox {
+  background: radial-gradient(circle at top, #0b2a5b, #061a3a);
+
+  border-radius: 20px;
+
+  padding: 40px 30px;
+
+  text-align: center;
+
+  width: 320px;
+
+  color: white;
+
+  position: relative;
+
+  box-shadow:
+    0 0 0 3px #facc15 inset,
+    0 15px 40px rgba(0, 0, 0, 0.6);
+
+  animation: scaleIn 0.3s ease;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    inset: -4px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(45deg, gold, orange);
+
+    z-index: -1;
+  }
+}
+
+.giftWheel {
+  font-size: 50px;
+
+  margin: 10px 0;
+
+  animation: bounce 1s infinite alternate;
+}
+
+.desc {
+  color: #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.reward {
+  background: linear-gradient(135deg, #fff7cc, #facc15);
+
+  border-radius: 14px;
+
+  padding: 15px;
+
+  margin-bottom: 25px;
+
+  color: #1e293b;
+
+  span {
+    display: block;
+    font-size: 18px;
+  }
+
+  strong {
+    font-size: 28px;
+  }
+}
+
+.okBtn {
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+
+  border: none;
+
+  padding: 12px 30px;
+
+  border-radius: 999px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  color: #1e293b;
+
+  transition: 0.25s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* ==========================
+   ADMIN BUTTON
+========================== */
+
+.adminBtn {
+  position: fixed;
+
+  left: 20px;
+  bottom: 20px;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 32px;
+
+  color: white;
+  background: #ff9800;
+
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  z-index: 9999;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: rotate(90deg) scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
